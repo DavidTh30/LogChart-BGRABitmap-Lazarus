@@ -1,0 +1,200 @@
+object MainForm: TMainForm
+  Left = 200
+  Height = 640
+  Top = 60
+  Width = 1080
+  AllowDropFiles = True
+  Caption = 'LogChart'
+  ClientHeight = 620
+  ClientWidth = 1080
+  Constraints.MinHeight = 400
+  Constraints.MinWidth = 700
+  Menu = MainMenu1
+  Position = poScreenCenter
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnDropFiles = FormDropFiles
+  OnShow = FormShow
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 23
+    Top = 597
+    Width = 1080
+    Panels = <
+      item
+        Width = 330
+      end
+      item
+        Width = 360
+      end
+      item
+        Width = 50
+      end>
+    SimplePanel = False
+  end
+  object MainMenu1: TMainMenu
+    Left = 600
+    Top = 200
+    object MenuFile: TMenuItem
+      Caption = '&File'
+      object MenuOpen: TMenuItem
+        Caption = '&Open...'
+        ShortCut = 16463
+        OnClick = MenuOpenClick
+      end
+      object MenuAdd: TMenuItem
+        Caption = '&Add files...'
+        OnClick = MenuAddClick
+      end
+      object MenuFolder: TMenuItem
+        Caption = 'Open &folder (all days)...'
+        OnClick = MenuFolderClick
+      end
+      object MenuReload: TMenuItem
+        Caption = '&Reload'
+        ShortCut = 116
+        OnClick = MenuReloadClick
+      end
+      object MenuSep1: TMenuItem
+        Caption = '-'
+      end
+      object MenuPng: TMenuItem
+        Caption = '&Export PNG...'
+        ShortCut = 16453
+        OnClick = MenuPngClick
+      end
+      object MenuSnapshot: TMenuItem
+        Caption = 'S&napshot to CSV...'
+        ShortCut = 24659
+        OnClick = MenuSnapshotClick
+      end
+      object MenuCopy: TMenuItem
+        Caption = '&Copy chart'
+        ShortCut = 24643
+        OnClick = MenuCopyClick
+      end
+      object MenuSep2: TMenuItem
+        Caption = '-'
+      end
+      object MenuExit: TMenuItem
+        Caption = 'E&xit'
+        OnClick = MenuExitClick
+      end
+    end
+    object MenuView: TMenuItem
+      Caption = '&View'
+      object MenuSeriesWin: TMenuItem
+        Caption = '&Series window'
+        Checked = True
+        ShortCut = 120
+        OnClick = MenuSeriesWinClick
+      end
+      object MenuSep4: TMenuItem
+        Caption = '-'
+      end
+      object MenuFit: TMenuItem
+        Caption = '&Whole file'
+        OnClick = MenuFitClick
+      end
+      object MenuZoomIn: TMenuItem
+        Caption = 'Zoom &in'
+        OnClick = MenuZoomInClick
+      end
+      object MenuZoomOut: TMenuItem
+        Caption = 'Zoom &out'
+        OnClick = MenuZoomOutClick
+      end
+      object MenuZoomBack: TMenuItem
+        Caption = 'Zoom &back'
+        ShortCut = 16474
+        OnClick = MenuZoomBackClick
+      end
+      object MenuAutoY: TMenuItem
+        Caption = '&Auto Y (all axes automatic)'
+        ShortCut = 16466
+        OnClick = MenuAutoYClick
+      end
+      object MenuSep3: TMenuItem
+        Caption = '-'
+      end
+      object MenuLanes: TMenuItem
+        Caption = '&Lanes (one strip per series; off = one plot, one Y axis per series)'
+        Checked = True
+        ShortCut = 16460
+        OnClick = MenuLanesClick
+      end
+      object MenuFitY: TMenuItem
+        Caption = '&Y fit to view'
+        ShortCut = 16473
+        OnClick = MenuFitYClick
+      end
+      object MenuPoints: TMenuItem
+        Caption = '&Points'
+        ShortCut = 16464
+        OnClick = MenuPointsClick
+      end
+      object MenuLive: TMenuItem
+        Caption = 'Li&ve (read new rows)'
+        ShortCut = 117
+        OnClick = MenuLiveClick
+      end
+      object MenuBoxMode: TMenuItem
+        Caption = 'Left drag = zoom &box'
+        ShortCut = 16450
+        OnClick = MenuBoxModeClick
+      end
+      object MenuSep5: TMenuItem
+        Caption = '-'
+      end
+      object MenuChartProps: TMenuItem
+        Caption = '&Chart properties...'
+        ShortCut = 123
+        OnClick = MenuChartPropsClick
+      end
+    end
+    object MenuHelp: TMenuItem
+      Caption = '&Help'
+      object MenuMouse: TMenuItem
+        Caption = '&Mouse and keys'
+        ShortCut = 112
+        OnClick = MenuMouseClick
+      end
+      object MenuAbout: TMenuItem
+        Caption = '&About'
+        OnClick = MenuAboutClick
+      end
+    end
+  end
+  object OpenDialog1: TOpenDialog
+    Filter = 'Data logger CSV (*.csv)|*.csv|All files|*.*'
+    Options = [ofAllowMultiSelect, ofFileMustExist, ofEnableSizing, ofViewDetail]
+    Left = 640
+    Top = 200
+  end
+  object SavePngDialog: TSaveDialog
+    DefaultExt = '.png'
+    Filter = 'PNG picture (*.png)|*.png'
+    Options = [ofOverwritePrompt, ofEnableSizing, ofViewDetail]
+    Left = 680
+    Top = 200
+  end
+  object SaveCsvDialog: TSaveDialog
+    Title = 'Snapshot: visible range and series as CSV'
+    DefaultExt = '.csv'
+    Filter = 'CSV file (*.csv)|*.csv'
+    Options = [ofOverwritePrompt, ofEnableSizing, ofViewDetail]
+    Left = 800
+    Top = 200
+  end
+  object SelectDirectoryDialog1: TSelectDirectoryDialog
+    Left = 720
+    Top = 200
+  end
+  object TimerLive: TTimer
+    Enabled = False
+    OnTimer = TimerLiveTimer
+    Left = 760
+    Top = 200
+  end
+end

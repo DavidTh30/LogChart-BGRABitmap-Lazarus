@@ -1,0 +1,562 @@
+object ChartPropsForm: TChartPropsForm
+  Left = 300
+  Height = 420
+  Top = 150
+  Width = 430
+  BorderStyle = bsDialog
+  Caption = 'Chart properties'
+  ClientHeight = 420
+  ClientWidth = 430
+  Position = poOwnerFormCenter
+  object Pages: TPageControl
+    Left = 8
+    Height = 362
+    Top = 8
+    Width = 414
+    ActivePage = TabLook
+    Align = alClient
+    BorderSpacing.Left = 8
+    BorderSpacing.Top = 8
+    BorderSpacing.Right = 8
+    TabIndex = 0
+    TabOrder = 0
+    object TabLook: TTabSheet
+      Caption = 'Appearance'
+      ClientHeight = 334
+      ClientWidth = 406
+      object LblTheme: TLabel
+        Left = 10
+        Height = 15
+        Top = 12
+        Width = 40
+        Caption = 'Theme'
+      end
+      object BtnLight: TButton
+        Left = 130
+        Height = 25
+        Top = 8
+        Width = 75
+        Caption = 'Light'
+        OnClick = BtnLightClick
+        TabOrder = 0
+      end
+      object BtnDark: TButton
+        Left = 210
+        Height = 25
+        Top = 8
+        Width = 75
+        Caption = 'Dark'
+        OnClick = BtnDarkClick
+        TabOrder = 1
+      end
+      object LblBack: TLabel
+        Left = 10
+        Height = 15
+        Top = 48
+        Width = 64
+        Caption = 'Background'
+      end
+      object ColBack: TColorButton
+        Left = 130
+        Height = 24
+        Top = 44
+        Width = 75
+        BorderWidth = 2
+        ButtonColorSize = 16
+        ButtonColor = clBlack
+      end
+      object LblPlot: TLabel
+        Left = 10
+        Height = 15
+        Top = 76
+        Width = 24
+        Caption = 'Plot'
+      end
+      object ColPlot: TColorButton
+        Left = 130
+        Height = 24
+        Top = 72
+        Width = 75
+        BorderWidth = 2
+        ButtonColorSize = 16
+        ButtonColor = clBlack
+      end
+      object LblPlot2: TLabel
+        Left = 10
+        Height = 15
+        Top = 104
+        Width = 105
+        Caption = 'Plot, every 2nd lane'
+      end
+      object ColPlot2: TColorButton
+        Left = 130
+        Height = 24
+        Top = 100
+        Width = 75
+        BorderWidth = 2
+        ButtonColorSize = 16
+        ButtonColor = clBlack
+      end
+      object LblGrid: TLabel
+        Left = 10
+        Height = 15
+        Top = 132
+        Width = 23
+        Caption = 'Grid'
+      end
+      object ColGrid: TColorButton
+        Left = 130
+        Height = 24
+        Top = 128
+        Width = 75
+        BorderWidth = 2
+        ButtonColorSize = 16
+        ButtonColor = clBlack
+      end
+      object LblAxis: TLabel
+        Left = 10
+        Height = 15
+        Top = 160
+        Width = 51
+        Caption = 'Axis lines'
+      end
+      object ColAxis: TColorButton
+        Left = 130
+        Height = 24
+        Top = 156
+        Width = 75
+        BorderWidth = 2
+        ButtonColorSize = 16
+        ButtonColor = clBlack
+      end
+      object LblText: TLabel
+        Left = 220
+        Height = 15
+        Top = 48
+        Width = 23
+        Caption = 'Text'
+      end
+      object ColText: TColorButton
+        Left = 310
+        Height = 24
+        Top = 44
+        Width = 75
+        BorderWidth = 2
+        ButtonColorSize = 16
+        ButtonColor = clBlack
+      end
+      object LblCursor: TLabel
+        Left = 220
+        Height = 15
+        Top = 76
+        Width = 37
+        Caption = 'Cursor'
+      end
+      object ColCursor: TColorButton
+        Left = 310
+        Height = 24
+        Top = 72
+        Width = 75
+        BorderWidth = 2
+        ButtonColorSize = 16
+        ButtonColor = clBlack
+      end
+      object LblBox: TLabel
+        Left = 220
+        Height = 15
+        Top = 104
+        Width = 52
+        Caption = 'Zoom box'
+      end
+      object ColBox: TColorButton
+        Left = 310
+        Height = 24
+        Top = 100
+        Width = 75
+        BorderWidth = 2
+        ButtonColorSize = 16
+        ButtonColor = clBlack
+      end
+      object Bevel1: TBevel
+        Left = 10
+        Height = 2
+        Top = 194
+        Width = 384
+        Shape = bsTopLine
+      end
+      object LblFont: TLabel
+        Left = 10
+        Height = 15
+        Top = 210
+        Width = 24
+        Caption = 'Font'
+      end
+      object ComboFont: TComboBox
+        Left = 130
+        Height = 23
+        Top = 206
+        Width = 255
+        ItemHeight = 15
+        Sorted = True
+        TabOrder = 2
+      end
+      object LblAxisFont: TLabel
+        Left = 10
+        Height = 15
+        Top = 242
+        Width = 105
+        Caption = 'Axis numbers (px)'
+      end
+      object SpinAxisFont: TSpinEdit
+        Left = 130
+        Height = 23
+        Hint = 'Height of the numbers on the time and Y axes'
+        Top = 238
+        Width = 60
+        MaxValue = 30
+        MinValue = 5
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 3
+        Value = 8
+      end
+      object LblLabelFont: TLabel
+        Left = 10
+        Height = 15
+        Top = 274
+        Width = 108
+        Caption = 'Names, box (px)'
+      end
+      object SpinLabelFont: TSpinEdit
+        Left = 130
+        Height = 23
+        Top = 270
+        Width = 60
+        MaxValue = 30
+        MinValue = 6
+        TabOrder = 4
+        Value = 12
+      end
+    end
+    object TabAxes: TTabSheet
+      Caption = 'Axes && lines'
+      ClientHeight = 334
+      ClientWidth = 406
+      object CheckGridX: TCheckBox
+        Left = 10
+        Height = 19
+        Top = 12
+        Width = 169
+        Caption = 'Grid lines for the time axis'
+        TabOrder = 0
+      end
+      object CheckGridY: TCheckBox
+        Left = 10
+        Height = 19
+        Top = 38
+        Width = 139
+        Caption = 'Grid lines for the Y axis'
+        TabOrder = 1
+      end
+      object LblTimeFmt: TLabel
+        Left = 10
+        Height = 15
+        Top = 72
+        Width = 64
+        Caption = 'Time format'
+      end
+      object ComboTimeFmt: TComboBox
+        Left = 130
+        Height = 23
+        Top = 68
+        Width = 180
+        ItemHeight = 15
+        Items.Strings = (
+          'Automatic (from the zoom)'
+          'hh:nn'
+          'hh:nn:ss'
+          'hh:nn:ss.zzz'
+          'dd-mm hh:nn'
+        )
+        Style = csDropDownList
+        TabOrder = 2
+      end
+      object CheckDate: TCheckBox
+        Left = 130
+        Height = 19
+        Top = 98
+        Width = 161
+        Caption = 'Date line under the times'
+        TabOrder = 3
+      end
+      object Bevel2: TBevel
+        Left = 10
+        Height = 2
+        Top = 130
+        Width = 384
+        Shape = bsTopLine
+      end
+      object LblWidth: TLabel
+        Left = 10
+        Height = 15
+        Top = 146
+        Width = 57
+        Caption = 'Line width'
+      end
+      object SpinWidth: TFloatSpinEdit
+        Left = 130
+        Height = 23
+        Hint = 'For all series with line width 0 (Series window > Properties)'
+        Top = 142
+        Width = 70
+        DecimalPlaces = 1
+        Increment = 0.5
+        MaxValue = 8
+        MinValue = 0.5
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 4
+        Value = 1
+      end
+      object CheckLaneNames: TCheckBox
+        Left = 10
+        Height = 19
+        Top = 180
+        Width = 168
+        Caption = 'Lanes: series name in the lane'
+        TabOrder = 5
+      end
+      object LblGap: TLabel
+        Left = 10
+        Height = 15
+        Top = 212
+        Width = 87
+        Caption = 'Lanes: gap (px)'
+      end
+      object SpinGap: TSpinEdit
+        Left = 130
+        Height = 23
+        Top = 208
+        Width = 60
+        MaxValue = 40
+        TabOrder = 6
+        Value = 4
+      end
+    end
+    object TabMouse: TTabSheet
+      Caption = 'Mouse && cursor'
+      ClientHeight = 334
+      ClientWidth = 406
+      object LblLeft: TLabel
+        Left = 10
+        Height = 15
+        Top = 16
+        Width = 79
+        Caption = 'Left mouse drag'
+      end
+      object ComboLeft: TComboBox
+        Left = 130
+        Height = 23
+        Hint = 'Right drag = the other one, Shift + left = the other one too'
+        Top = 12
+        Width = 255
+        ItemHeight = 15
+        Items.Strings = (
+          'Move the time (right drag = zoom box)'
+          'Zoom box (right drag = move the time)'
+        )
+        ParentShowHint = False
+        ShowHint = True
+        Style = csDropDownList
+        TabOrder = 0
+      end
+      object LblWheel: TLabel
+        Left = 10
+        Height = 15
+        Top = 48
+        Width = 95
+        Caption = 'Wheel zoom step %'
+      end
+      object SpinWheel: TSpinEdit
+        Left = 130
+        Height = 23
+        Top = 44
+        Width = 60
+        MaxValue = 60
+        MinValue = 5
+        TabOrder = 1
+        Value = 20
+      end
+      object CheckReadout: TCheckBox
+        Left = 10
+        Height = 19
+        Top = 84
+        Width = 196
+        Caption = 'Value box at the cursor (all values)'
+        TabOrder = 2
+      end
+      object CheckCross: TCheckBox
+        Left = 10
+        Height = 19
+        Top = 110
+        Width = 157
+        Caption = 'Horizontal cursor line too'
+        TabOrder = 3
+      end
+      object CheckGaps: TCheckBox
+        Left = 10
+        Height = 19
+        Top = 136
+        Width = 200
+        Caption = 'Red marks for NO CONNECTION rows'
+        TabOrder = 4
+      end
+    end
+    object TabLive: TTabSheet
+      Caption = 'Data && export'
+      ClientHeight = 334
+      ClientWidth = 406
+      object LblLive: TLabel
+        Left = 10
+        Height = 15
+        Top = 16
+        Width = 95
+        Caption = 'Live: read every ms'
+      end
+      object SpinLive: TSpinEdit
+        Left = 130
+        Height = 23
+        Top = 12
+        Width = 80
+        Increment = 100
+        MaxValue = 60000
+        MinValue = 200
+        TabOrder = 0
+        Value = 1000
+      end
+      object LblExport: TLabel
+        Left = 10
+        Height = 15
+        Top = 56
+        Width = 111
+        Caption = 'PNG / copy size (px)'
+      end
+      object SpinExpW: TSpinEdit
+        Left = 130
+        Height = 23
+        Hint = '0 = size of the chart on the screen'
+        Top = 52
+        Width = 70
+        MaxValue = 8000
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 1
+      end
+      object LblX: TLabel
+        Left = 206
+        Height = 15
+        Top = 56
+        Width = 6
+        Caption = 'x'
+      end
+      object SpinExpH: TSpinEdit
+        Left = 218
+        Height = 23
+        Hint = '0 = size of the chart on the screen'
+        Top = 52
+        Width = 70
+        MaxValue = 8000
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 2
+      end
+      object LblStartRows: TLabel
+        Left = 10
+        Height = 15
+        Top = 120
+        Width = 104
+        Caption = 'Rows after loading'
+      end
+      object SpinStartRows: TSpinEdit
+        Left = 130
+        Height = 23
+        Hint = 'After opening a file the chart shows the last ... rows. 0 = the whole file'
+        Top = 116
+        Width = 90
+        Increment = 100
+        MaxValue = 100000000
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 3
+        Value = 1000
+      end
+      object LblStartHint: TLabel
+        Left = 130
+        Height = 15
+        Top = 142
+        Width = 230
+        Caption = 'the newest rows; 0 = whole file'
+        Font.Color = clGrayText
+        ParentFont = False
+      end
+      object LblExpHint: TLabel
+        Left = 130
+        Height = 15
+        Top = 80
+        Width = 164
+        Caption = '0 x 0 = size of the chart window'
+        Font.Color = clGrayText
+        ParentFont = False
+      end
+    end
+  end
+  object PanelBtns: TPanel
+    Left = 0
+    Height = 50
+    Top = 370
+    Width = 430
+    Align = alBottom
+    BevelOuter = bvNone
+    ClientHeight = 50
+    ClientWidth = 430
+    TabOrder = 1
+    object BtnDefaults: TButton
+      Left = 8
+      Height = 28
+      Top = 12
+      Width = 80
+      Caption = 'Defaults'
+      OnClick = BtnDefaultsClick
+      TabOrder = 0
+    end
+    object BtnApply: TButton
+      Left = 172
+      Height = 28
+      Top = 12
+      Width = 80
+      Caption = 'Apply'
+      OnClick = BtnApplyClick
+      TabOrder = 1
+    end
+    object BtnOK: TButton
+      Left = 256
+      Height = 28
+      Top = 12
+      Width = 80
+      Caption = 'OK'
+      Default = True
+      ModalResult = 1
+      TabOrder = 2
+    end
+    object BtnCancel: TButton
+      Left = 340
+      Height = 28
+      Top = 12
+      Width = 80
+      Cancel = True
+      Caption = 'Cancel'
+      ModalResult = 2
+      TabOrder = 3
+    end
+  end
+end

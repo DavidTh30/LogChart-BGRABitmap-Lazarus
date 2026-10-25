@@ -1,0 +1,68 @@
+object LoadingForm: TLoadingForm
+  Left = 400
+  Height = 150
+  Top = 300
+  Width = 400
+  BorderIcons = []
+  BorderStyle = bsToolWindow
+  Caption = 'Loading'
+  ClientHeight = 150
+  ClientWidth = 400
+  FormStyle = fsStayOnTop
+  Position = poOwnerFormCenter
+  ShowInTaskBar = stNever
+  object PaintSpin: TPaintBox
+    Left = 14
+    Height = 56
+    Top = 14
+    Width = 56
+    OnPaint = PaintSpinPaint
+  end
+  object LabelTitle: TLabel
+    Left = 84
+    Height = 15
+    Top = 14
+    Width = 100
+    Caption = 'Reading CSV files ...'
+    Font.Style = [fsBold]
+    ParentFont = False
+  end
+  object LabelFile: TLabel
+    Left = 84
+    Height = 15
+    Top = 34
+    Width = 302
+    AutoSize = False
+    Caption = '-'
+    Font.Color = clGrayText
+    ParentFont = False
+  end
+  object Bar: TProgressBar
+    Left = 84
+    Height = 16
+    Top = 56
+    Width = 302
+    Max = 1000
+    Smooth = True
+    TabOrder = 0
+  end
+  object LabelInfo: TLabel
+    Left = 84
+    Height = 32
+    Top = 78
+    Width = 302
+    AutoSize = False
+    Caption = '-'
+    WordWrap = True
+  end
+  object BtnCancel: TButton
+    Left = 306
+    Height = 26
+    Top = 116
+    Width = 80
+    Cancel = True
+    Caption = 'Cancel'
+    OnClick = BtnCancelClick
+    TabOrder = 1
+  end
+end
