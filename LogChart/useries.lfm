@@ -31,7 +31,7 @@ object SeriesForm: TSeriesForm
       BorderSpacing.Left = 6
       BorderSpacing.Top = 4
       BorderSpacing.Right = 6
-      Caption = 'Tick = show, double-click = only this one'
+      Caption = 'Tick = show, double-click a name = only this one'
       Font.Color = clGrayText
       ParentFont = False
     end

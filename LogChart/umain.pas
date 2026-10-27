@@ -774,11 +774,25 @@ begin
   FChart.Invalidate;
 end;
 
+{ double-click on the NAME: only this series. On the check box the double-click is only
+  a click (the LCL ticks the box on button down and on double-click: our "only this one"
+  came between the two and in the end every box was empty) }
 procedure TMainForm.ListSeriesDblClick(Sender: TObject);
 var
   I: Integer;
+  P: TPoint;
 begin
   if FSeries.ListSeries.ItemIndex < 0 then Exit;
+  P := FSeries.ListSeries.ScreenToClient(Mouse.CursorPos);
+  if P.X < FSeries.ListSeries.ItemHeight + 2 then
+  begin
+    { the box was ticked twice by the double-click: count it as one click }
+    I := FSeries.ListSeries.ItemIndex;       // the row of the click (the list may have scrolled)
+    if (I >= 0) and FData.Series[I].Numeric then
+      FSeries.ListSeries.Checked[I] := not FSeries.ListSeries.Checked[I];
+    ListSeriesClickCheck(nil);
+    Exit;
+  end;
   for I := 0 to FSeries.ListSeries.Count - 1 do
     FSeries.ListSeries.Checked[I] := (I = FSeries.ListSeries.ItemIndex) and FData.Series[I].Numeric;
   ListSeriesClickCheck(nil);
